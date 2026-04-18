@@ -2,7 +2,7 @@
 # We start with a Maven + JDK image. This image already has Maven
 # and Java installed, so we can compile your code inside it.
 # "AS build" names this stage so we can reference it later.
-FROM maven:3.9.6-eclipse-temurin-17 AS build
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 
 # Set the working directory inside the container.
 # All subsequent commands run from here.
@@ -32,7 +32,7 @@ RUN mvn -B clean package -DskipTests
 # Why: The Maven/JDK image from Stage 1 is ~500MB. We don't need
 # Maven or compilation tools at runtime. This JRE image is ~180MB.
 # The final container image is much smaller.
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 
