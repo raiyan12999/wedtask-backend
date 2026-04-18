@@ -36,3 +36,10 @@ build/
 .env
 *.env
 .env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Never commit environment-specific properties
+application-local.properties
